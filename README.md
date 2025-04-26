@@ -1,35 +1,115 @@
-# Shortest Path Finder with Dijkstra's Algorithm
 
-This repository contains a basic C program that calculates the shortest path between two cities in a map, using adjacency matrices and minimum heaps. The program reads from an input file to construct the map, provides an adjacency matrix view of the map, and calculates the shortest path between two given cities.
+# 📘 BFS Shortest Path Finder (C Language)
 
-## Input File
-The input file should consist of triplets of information representing a city pair and the distance between them. Each triplet is structured as City1-City2-Distance, where City1 and City2 are uppercase single letters representing cities, and Distance is the distance between City1 and City2.
+This project implements the **Breadth-First Search (BFS)** algorithm to find the **shortest path** in an **unweighted graph** using the **adjacency matrix representation**. It takes user input for the number of nodes, edges, and the source and destination nodes, and prints the shortest path (if any exists).
 
-## Adjacency Matrix
-The adjacency matrix is a two-dimensional array representation of the map, where the cell at the i-th row and j-th column represents the distance between the i-th city and the j-th city.
+---
 
-## MinHeap
-A basic MinHeap data structure is implemented to efficiently select the vertex with the shortest distance during the execution of Dijkstra's algorithm.
+## 🚀 Features
 
-## Dijkstra's Algorithm
-On inputting a source and a destination vertex, the program calculates and presents the shortest path between them.
+- Accepts dynamic input for graph construction.
+- Uses **BFS** for shortest path calculation.
+- Supports **undirected unweighted graphs**.
+- Traces and displays the **shortest path from source to destination**.
+- Handles disconnected graphs by reporting if no path exists.
 
-## Shortest Path Calculation
-The program uses the Dijkstra's algorithm for shortest path calculation. The implementation involves using a minimum heap data structure to hold the nodes, which are sorted by their distance from the source node.
+---
 
-### The main functions of the program are:
+## 🧠 Algorithm Used
 
-- initializeMinHeap: Initializes the min heap with a given capacity.
-- insertElementToMinHeap: Inserts a new node into the min heap.
-- extractMinElementFromMinHeap: Removes and returns the node with the minimum distance.
-- heapify: Ensures the min heap property is maintained after an extraction.
-- readInputFile: Reads the map information from an input file and fills the adjacency matrix.
-- showAdjacencyMatrix: Displays the adjacency matrix.
-- shortestPath: Computes the shortest path between two cities.
+- **Breadth-First Search (BFS):**
+  - Explores nodes level by level.
+  - Guarantees shortest path (minimum number of edges) in unweighted graphs.
+  - Efficiently implemented using a queue.
 
-## How to Run the Program
-Compile the main source file with your preferred C compiler and run the resulting executable. Make sure to prepare an input file with the graph information before running the program. For example, with gcc:
+---
+
+## 🛠️ How It Works
+
+1. User inputs number of nodes and edges.
+2. Graph is created using an adjacency matrix.
+3. BFS is run from the source node.
+4. If destination is reached, the path is traced back using the `parent[]` array.
+5. The path is printed in correct order from source to destination.
+
+---
+
+## 📂 File Structure
+
 ```
-gcc main.c -o main
-./main
+bfs_shortest_path.c    # Main C program implementing BFS
+README.md              # Project documentation
 ```
+
+---
+
+## 🧾 Sample Input & Output
+
+**Input:**
+```
+Enter number of nodes and edges: 6 7
+Enter edges (format: from to):
+0 1
+0 2
+1 3
+2 3
+3 4
+4 5
+2 5
+Enter source and destination: 0 5
+```
+
+**Output:**
+```
+Shortest Path: 0 2 5
+```
+
+---
+
+## 📌 How to Run
+
+### 🖥️ Compile
+```bash
+gcc bfs_shortest_path.c -o bfs
+```
+
+### ▶️ Run
+```bash
+./bfs
+```
+
+---
+
+## ✅ Requirements
+
+- C compiler (e.g., GCC)
+- Basic understanding of graphs and BFS
+
+---
+
+## 🔍 Code Overview
+
+- `adj[MAX][MAX]` → Adjacency matrix.
+- `visited[MAX]` → Tracks visited nodes.
+- `parent[MAX]` → Helps reconstruct the path.
+- `bfs(start, end, n)` → Function to run BFS from source to destination.
+
+---
+
+## 💡 Applications
+
+- Maze solvers and game maps
+- Network routing algorithms
+- Social network path finding
+- AI pathfinding algorithms
+
+---
+
+## 📬 Future Improvements
+
+- Convert to adjacency list for better scalability.
+- Add support for **weighted graphs** using **Dijkstra’s Algorithm**.
+- Extend to **2D grid** problems like mazes.
+- Visualize the graph and path using a GUI.
+
+---
